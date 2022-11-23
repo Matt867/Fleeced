@@ -53,6 +53,10 @@ userRouter.post('/signup', validPasswordCheck, async (req, res) => {
  *      username: STRING,
  *      password: STRING,
  * }
+ * and a header of:
+ * {
+ *      authorization: TOKEN
+ * }
  */
 userRouter.post('/login', validateCredentials, getToken, (req, res) => {
     res.status(200).send(req.token)
