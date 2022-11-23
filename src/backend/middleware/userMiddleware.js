@@ -22,7 +22,6 @@ async function validateCredentials (req, res, next) {
                 username: username
             }
         })
-
         if (!user) throw new Error("Invalid username or password")
 
         await bcrypt.compare(password, user.password, (err, result) => {
