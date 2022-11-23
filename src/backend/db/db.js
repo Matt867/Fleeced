@@ -3,7 +3,7 @@ const path = require('path')
 
 const db = new Sequelize({
     dialect: 'sqlite',
-    storage: path.join(__dirname, "fleecedDB.sqlite")
+    storage: path.join(__dirname, "./fleecedDB.sqlite")
 })
 
 module.exports = db

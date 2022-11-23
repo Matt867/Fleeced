@@ -1,7 +1,9 @@
 const { Model, DataTypes} = require('sequelize')
 const db = require('../db/db')
 
-const Order = db.define({
+class Order extends Model { }
+
+Order.init({
     orderId: {
         type: DataTypes.STRING,
         allowNull: false,

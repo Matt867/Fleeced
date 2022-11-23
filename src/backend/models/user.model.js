@@ -1,7 +1,10 @@
 const { Model, DataTypes} = require('sequelize')
+
 const db = require('../db/db')
 
-const User = db.define({
+class User extends Model { }
+
+User.init({
     username: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -13,9 +16,6 @@ const User = db.define({
     email: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-            isEmail: true
-        }
     }
 }, {sequelize: db})
 

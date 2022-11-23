@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt')
 const cors = require('cors')
 const fetch = require('isomorphic-fetch')
 const userRouter = express.Router()
+const User = require("../models/user.model")
 const { validPasswordCheck, validateCredentials, validateToken, getToken } = require('../middleware/userMiddleware')
 
 

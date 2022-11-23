@@ -1,7 +1,9 @@
 const { Model, DataTypes} = require('sequelize')
 const db = require('../db/db')
 
-const Item = db.define({
+class Item extends Model { }
+
+Item.init({
     description: {
         type: DataTypes.STRING
     },

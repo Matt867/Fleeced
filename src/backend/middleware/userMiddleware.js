@@ -1,6 +1,9 @@
+const { User, Order, Item } = require("../models")
+const bcrypt = require('bcrypt')
+
 function validPasswordCheck (req, res, next) {
     let password = req.body.password
-
+    console.log(password)
     const requirement = new RegExp("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$")
     if (requirement.test(password)) {
         next()
