@@ -4,6 +4,7 @@ const userRouter = require('./routes/userRouter')
 const orderRouter = require('./routes/orderRouter')
 const { propfind } = require('./routes/userRouter')
 
+app.use(express.json())
 
 app.use('/users', userRouter)
 app.use('/order', orderRouter)
