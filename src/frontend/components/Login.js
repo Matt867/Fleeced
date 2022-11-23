@@ -18,7 +18,8 @@ const Login = () => {
           }}>
 
           <div className="username">
-            <h3>Username:</h3>
+            <label>Username:</label>
+            <br />
             <input
               required
               type="text"
@@ -26,10 +27,11 @@ const Login = () => {
           </div>
 
           <div className="password">
-            <h3>Pasword:</h3>
+            <label>Pasword:</label>
+            <br />
             <input
               required
-              type="text"
+              type="password"
               onChange={e => setPassword(e.target.value)} />
           </div>
 
