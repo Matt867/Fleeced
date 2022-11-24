@@ -1,14 +1,12 @@
-import styles from '../components-styles/Basket.module.css'
-
-const ItemCard = ({itemCard}) => {
-
+const ItemCard = ({ key, item, styles }) => {
     return (
-        <div className={styles.wrapper}>
-            <img src={itemCard.image}></img>
-            <p>Title: {itemCard.title}</p>
-            <p>Price: {itemCard.price}</p>
+        <div key={key} className={styles.wrapper}>
+            {/* <img src={item.image}></img> */}
+            <p>Title: {item.title}</p>
+            <br />
+            <p>Price: {item.price}</p>
         </div>
-    )
-}
+    );
+};
 
 export default ItemCard
