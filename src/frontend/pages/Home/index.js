@@ -3,8 +3,10 @@ import Header from "./components/Header";
 import SignUpButton from "./components/SignUpButton";
 import LoginButton from "./components/LoginButton";
 import LogoutButton from "./components/LogoutButton";
+import Banner from "./components/Banner";
+import Items from "./components/Items";
 
-const Home = () => {
+const Home = ({ items, setItem }) => {
   return (
     <>
       <header>
@@ -12,8 +14,11 @@ const Home = () => {
         <SeachBar />
         <SignUpButton />
         {<LoginButton /> || <LogoutButton />}
+        <Banner />
       </header>
-      <main></main>
+      <main>
+        <Items items={items} />
+      </main>
     </>
   );
 };
