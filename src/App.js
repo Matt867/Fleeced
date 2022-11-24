@@ -1,21 +1,21 @@
-import { BrowserRouter, createBrowserRouter, Route, Routes } from 'react-router-dom';
-import Basket from './frontend/components/Basket.js';
-import Login from './frontend/components/Login.js'
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import Basket from "./frontend/components/Basket";
+import Login from "./frontend/components/Login";
+import SignUp from "./frontend/components/SignUp";
 
-// const router = createBrowserRouter({
-//   path: '/login',
-//   element: <Login/>
-// })
+function App() {
 
-const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<Login/>} path='/login'/>
-        <Route element={<Basket/>} path='/basket'/>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path='/basket' element={<Basket/>}/>
       </Routes>
     </BrowserRouter>
-  )
-}
+  );
+};
 
 export default App;
