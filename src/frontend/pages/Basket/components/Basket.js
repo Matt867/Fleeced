@@ -1,6 +1,6 @@
-import styles from '../components-styles/Basket.module.css'
+import styles from '../../../components-styles/Basket.module.css'
 import { useState } from "react"
-import Order from "./Order"
+import Order from "../../../components/Order"
 
 const Basket = () => {
     const [items, setItems] = useState([
