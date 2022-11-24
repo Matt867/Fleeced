@@ -5,6 +5,7 @@ import Login from "./frontend/pages/Login";
 import SignUp from "./frontend/pages/SignUp";
 import Home from "./frontend/pages/Home";
 import BasketPage from "./frontend/pages/Basket";
+import Item from "./frontend/pages/Item";
 
 const tempData = [
   {
@@ -27,13 +28,16 @@ const tempData = [
 function App() {
   const [item, setItem] = useState("");
   const [items, setItems] = useState(tempData || []);
+  const [loggedIn, setLoggedIn] = useState(true);
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home items={items} setItem={setItem} />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path='/basket' element={<BasketPage />} />
+        <Route path="/" element={<Home loggedIn={loggedIn} items={items} setItem={setItem} />} />
+        <Route path="/login" element={<Login setLoggedIn={setLoggedIn} />} />
+        <Route path="/signup" element={<SignUp setLoggedIn={setLoggedIn} />} />
+        <Route path="/item" element={<Item setLoggedIn={setLoggedIn} />} />
+        <Route path='/basket' element={<BasketPage setLoggedIn={setLoggedIn} />} />
       </Routes>
     </BrowserRouter>
   );
