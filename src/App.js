@@ -10,9 +10,18 @@ const tempData = [
   {
     img_url: 'https://m.media-amazon.com/images/I/71JCqgGdqUL._AC_AA360_.jpg',
     title: 'Ducks',
-    quantity: 2,
     price: 20
-  }
+  },
+  {
+    img_url: 'https://m.media-amazon.com/images/I/71JCqgGdqUL._AC_AA360_.jpg',
+    title: 'Cat',
+    price: 3
+  },
+  {
+    img_url: 'https://m.media-amazon.com/images/I/71JCqgGdqUL._AC_AA360_.jpg',
+    title: 'Dog',
+    price: 60
+  },
 ];
 
 function App() {

@@ -9,7 +9,19 @@ const Basket = () => {
             title: 'Ducks',
             quantity: 2,
             price: 20
-        }
+        },
+        {
+            img_url: 'https://m.media-amazon.com/images/I/71JCqgGdqUL._AC_AA360_.jpg',
+            title: 'Ducks',
+            quantity: 2,
+            price: 20
+        },
+        {
+            img_url: 'https://m.media-amazon.com/images/I/71JCqgGdqUL._AC_AA360_.jpg',
+            title: 'Ducks',
+            quantity: 2,
+            price: 20
+        },
     ]);
 
     return (
