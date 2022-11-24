@@ -1,6 +1,6 @@
 const express = require('express')
 const itemRouter = express.Router()
-const { Item, User } = require('../models')
+const { Item, User, Order } = require('../models')
 const fetch = require('isomorphic-fetch')
 
 /*
@@ -18,6 +18,21 @@ itemRouter.get("/:id", async (req, res) => {
         }
     } catch (error) {
         res.sendStatus(404)
+    }
+})
+
+itemRouter.get('/', async (req, res) => {
+    try {
+        const items = (await Item.findAll()).filter((item) => {
+            if (item.getOrder()) {
+                return false
+            } else {
+                return true
+            }
+        })
+        res.send(items)
+    } catch (error) {
+        res.sendStatus(400)
     }
 })
 /*

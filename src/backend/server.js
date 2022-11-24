@@ -9,6 +9,6 @@ app.use(express.json())
 
 app.use('/users', userRouter)
 app.use('/order', orderRouter)
-app.use('/item', itemsRouter)
+app.use('/items', itemsRouter)
 
 app.listen(3000)
