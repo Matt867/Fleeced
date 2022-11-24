@@ -28,7 +28,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "nodemon ./src/backend/server.js",
-    "authStart": "nodemon ./src/auth/server/server.js"
+    "authStart": "nodemon ./src/auth/server/server.js",
+    "seed": "node ./src/backend/db/test/seed.js"
   },
   "eslintConfig": {
     "extends": [
