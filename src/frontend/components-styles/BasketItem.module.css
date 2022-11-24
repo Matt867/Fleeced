@@ -1,0 +1,16 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.wrapper > img {
+    width: 6em;
+    height: 6em;
+}
+
+
+
+h3 {
+    margin: 0;
+}
