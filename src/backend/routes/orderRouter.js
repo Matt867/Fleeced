@@ -13,7 +13,7 @@ orderRouter.post("/", async (req, res) => {
     try {
         if (req.body.itemIds) {
             let items = []
-            itemIds.map((id) => {
+            itemIds.map(async (id) => {
                 let item = await Item.findByPk(id)
                 items.push(item)
             })

@@ -24,7 +24,7 @@ userRouter.post('/signup', validPasswordCheck, async (req, res) => {
 
         if (userCheck) throw new Error("User with that handle already exists!")
 
-        bcrypt.hash(password, 9, (err, hash) => {
+        bcrypt.hash(password, 9, async (err, hash) => {
 
             if (err) throw new Error(err)
 
