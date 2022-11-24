@@ -1,7 +1,11 @@
 const express = require('express')
-const itemRouter = express.Router()
-const { Item, User, Order } = require('../models')
+const crypto = require('crypto')
+const bcrypt = require('bcrypt')
+const cors = require('cors')
 const fetch = require('isomorphic-fetch')
+const itemRouter = express.Router()
+const {User, Item} = require("../models")
+const { validPasswordCheck, validateCredentials, validateToken, getToken } = require('../middleware/userMiddleware')
 
 /*
 Fetch item - view item
@@ -50,50 +54,39 @@ item: {
     tags: [optional, if more than 5 given only first 5 taken in as tags]
 }
 */
-itemRouter.put("/add", async (req, res) => {
-    try {
-        const response = await fetch('http://localhost:3001/api/authenticateToken', {
-            method: "GET",
-            headers: {
-                'authorization': `Basic ${req.body.token}`,
-                'Content-Type': 'application/x-www-form-urlencoded'
-            }
-        })
-        const auth = await response.json()
-        if (auth.authenticated) {
-            const username = auth.username
-            const user = await User.findOne({ where: { username: username}})
-        } else {
-            res.sendStatus(401)
-        }
-    } catch (error) {
-        res.sendStatus(400)
-    }
-    try {
-        const item = req.body.item
-        let tags = []
-        for (let i = 0; i < 5; i ++) {
-            if (item.tags[i]) {
-                tags.push(item.tags[i])
-            } else {
-                tags.push(null)
-            }
-        }
-        const obj = await Item.create({
-            username: item.username,
-            description: item.description,
-            price: item.price,
+itemRouter.post('/add', validateToken, async (req, res) => {
+    const description = req.body.description
+    const price = req.body.price
+    const title = req.body.title
+    const image = req.body.image
+    const tags = req.body.tags
+
+    if (description && price && title && image) {
+        const user = await User.findOne({ where: {
+            username: req.auth.username
+        }})
+
+        if (!user) res.status(404).send("User does not exist")
+
+        const item = await Item.create({
+            description: description,
+            price: price,
+            title: title,
+            image: image,
             tag1: tags[0],
             tag2: tags[1],
             tag3: tags[2],
             tag4: tags[3],
             tag5: tags[4]
         })
-        user.addItems(obj)
+
+        item.setUser(user)
+
         res.sendStatus(201)
-    } catch (error) {
-        res.sendStatus(400)
+    } else {
+        res.status(400).send("Missing crucial information about the item")
     }
+
 })
 
 /*

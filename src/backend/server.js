@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const userRouter = require('./routes/userRouter')
 const orderRouter = require('./routes/orderRouter')
-const itemsRouter = require('./routes/itemsRouter')
+const itemRouter = require('./routes/itemsRouter')
 
 
 app.use(express.json())
