@@ -9,12 +9,13 @@ body: {
     itemIds: []
 }
 */
-orderRouter.post("/", (req, res) => {
+orderRouter.post("/", async (req, res) => {
     try {
         if (req.body.itemIds) {
+            let items = []
             itemIds.map((id) => {
-                let items = []
-                items.push(Item.findByPk(id))
+                let item = await Item.findByPk(id)
+                items.push(item)
             })
             res.send(items)
         } else {
