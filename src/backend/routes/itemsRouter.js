@@ -5,6 +5,7 @@ const cors = require('cors')
 const fetch = require('isomorphic-fetch')
 const itemRouter = express.Router()
 const {User, Item} = require("../models")
+const { Op } = require('sequelize')
 const { validPasswordCheck, validateCredentials, validateToken, getToken } = require('../middleware/userMiddleware')
 
 /*
@@ -164,6 +165,31 @@ itemRouter.delete("/delete", validateToken, async (req, res) => {
         }
     } catch (error) {
         res.sendStatus(400)
+    }
+})
+/*
+Search:
+params.query is user query, searches description agiainst query
+*/
+
+itemRouter.get('/search/:query', async (req, res) => {
+    const query = req.params.query
+    console.log(query)
+    try {
+        const results = await Item.findAll({
+            where: {
+                [Op.or]: [
+                {title: {
+                    [Op.substring]: query
+                }},
+               { description: {
+                    [Op.substring]: query
+                }}]
+            }
+        })
+        res.send(results)
+    } catch (error) {
+        res.send(400)
     }
 })
 
