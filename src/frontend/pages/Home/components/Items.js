@@ -1,12 +1,15 @@
-import styles from '../components-styles/Basket.module.css'
+import styles from "../../../components-styles/Basket.module.css";
+import ItemCard from "./ItemCard";
 
-const Items = ({items}) => {
+const Items = ({ items }) => {
     return (
-        <div className={styles.wrapper}>
-            <header>Items</header>
-            {items.map(item => <ItemCard itemCard={item}/>)}
-        </div>
-    )
-}
+        <>
+            <div className={styles.wrapper} key={0}>
+                <label>Items</label>
+            </div>
+            {items.map((item, idx) => <ItemCard key={idx} item={item} styles={styles} />)}
+        </>
+    );
+};
 
-export default Items
+export default Items;
