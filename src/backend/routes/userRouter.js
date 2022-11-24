@@ -28,13 +28,13 @@ userRouter.post('/signup', validPasswordCheck, async (req, res) => {
 
             if (err) throw new Error(err)
 
-            User.create({
+            user = await User.create({
                 username: req.body.username,
                 password: hash,
                 email: req.body.email
             })
             .then(
-                res.status(200).send("User successfully created")
+                res.status(200).send("User succesfully created")
             )
             .catch(
                 err => {throw new Error(err)}
@@ -54,15 +54,24 @@ userRouter.post('/signup', validPasswordCheck, async (req, res) => {
  *      username: STRING,
  *      password: STRING,
  * }
- * and a header of:
- * {
- *      authorization: TOKEN
- * }
  */
 userRouter.post('/login', validateCredentials, getToken, (req, res) => {
     res.status(200).send(req.token)
 })
 
+
+/*
+{
+    token: STRING (token you get from localstorage)
+}
+
+
+will response with:
+{
+    username: USERNAME
+    authenticated: BOOL true/false
+}
+*/
 userRouter.post('/validateToken', validateToken, (req, res) => {
     const authenticated = req.auth
     res.status(200).send(authenticated)
