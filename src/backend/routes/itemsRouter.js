@@ -16,7 +16,7 @@ itemRouter.get("/:id", async (req, res) => {
     try {
         if (id) {
             const item = await Item.findByPk(id)
-            res.send(item)
+            res.json(item)
         } else {
             res.sendStatus(400)
         }
@@ -45,13 +45,15 @@ itemRouter.get('/', async (req, res) => {
 Create new item
 Expects body containing token, item object:
 
-token: token (from localstorage)
-item: {
-    description: "",
-    title: "",
-    price: *INT*,
-    image: *Optional*,
-    tags: [optional, if more than 5 given only first 5 taken in as tags]
+header: {
+    authorization: TOKEN
+}
+body: {
+    "title" : STRING,
+    "price" : INT,
+    "description": STRING,
+    "image": STRING,
+    "tags": [<STRING>] array of up to 5
 }
 */
 itemRouter.post('/add', validateToken, async (req, res) => {
@@ -92,27 +94,22 @@ itemRouter.post('/add', validateToken, async (req, res) => {
 /*
 Edit item
 Expects body containing id and feilds to update
-
+headers: {
+    authorization: TOKEN
+}
 body: {
-    token: token,
+
     item: {
         id: id,
         description: "North face jacket - *not so* good condition"
     }
 }
 */
-itemRouter.patch("/edit", async (req, res) => {
+itemRouter.patch("/edit", validateToken, async (req, res) => {
     try {
-        const response = await fetch('http://localhost:3001/api/authenticateToken', {
-            method: "GET",
-            headers: {
-                'authorization': `Basic ${req.body.token}`,
-                'Content-Type': 'application/x-www-form-urlencoded'
-            }
-        })
-        const auth = await response.json()
-        if (auth.authenticated) {
-            const username = auth.username
+
+        if (req.auth.authenticated) {
+            const username = req.auth.username
             const user = await User.findOne({ where: { username: username}})
         } else {
             res.sendStatus(401)
@@ -138,24 +135,18 @@ itemRouter.patch("/edit", async (req, res) => {
 })
 /*
 Expects body with token and item id:
-
+header: {
+    authorization: TOKEN
+}
 body: {
     itemId: id,
-    token: token
 }
 */
-itemRouter.delete("/delete", async (req, res) => {
+itemRouter.delete("/delete", validateToken, async (req, res) => {
     try {
-        const response = await fetch('http://localhost:3001/api/authenticateToken', {
-            method: "GET",
-            headers: {
-                'authorization': `Basic ${req.body.token}`,
-                'Content-Type': 'application/x-www-form-urlencoded'
-            }
-        })
-        const auth = await response.json()
-        if (auth.authenticated) {
-            const username = auth.username
+
+        if (req.auth.authenticated) {
+            const username = req.auth.username
             const user = await User.findOne({ where: { username: username}})
         } else {
             res.sendStatus(401)
