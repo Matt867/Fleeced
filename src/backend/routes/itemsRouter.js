@@ -20,7 +20,9 @@ itemRouter.get("/:id", async (req, res) => {
         res.sendStatus(404)
     }
 })
-
+/*
+Call to return all items not associated with an order object
+*/
 itemRouter.get('/', async (req, res) => {
     try {
         const items = (await Item.findAll()).filter((item) => {
