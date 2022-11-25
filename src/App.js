@@ -26,7 +26,7 @@ const tempData = [
 ];
 
 function App() {
-  console.log(Login)
+
   const [items, setItems] = useState(tempData || []);
   const [searchText, setSearchText] = useState("");
 
