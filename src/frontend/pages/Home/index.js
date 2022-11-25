@@ -8,6 +8,7 @@ import styles_homeItem from "./components-styles/Home-Item.module.css"
 import Banner from "./components/Banner";
 import Items from "./components/Items";
 
+
 const Home = ({ loggedIn, items, setItem }) => {
   return (
     <>
