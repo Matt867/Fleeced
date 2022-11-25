@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Navigate } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
-import Login from "./frontend/pages/Login";
+import Login from "./frontend/pages/Login/index.js";
 import SignUp from "./frontend/pages/SignUp";
 import Home from "./frontend/pages/Home";
 import BasketPage from "./frontend/pages/Basket";
@@ -49,7 +49,7 @@ function App() {
    * User: obj
    * - token: str
    */
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState("");
 
   // on update of Items re-render homepage
   // useEffect(() => <Navigate to="/" />, [items]);

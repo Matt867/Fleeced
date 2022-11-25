@@ -5,7 +5,9 @@ const orderRouter = require('./routes/orderRouter')
 const itemRouter = require('./routes/itemsRouter')
 const fileUpload = require("express-fileupload")
 const path = require("path")
+const cors = require('cors')
 
+app.use(cors())
 app.use(fileUpload())
 app.use(express.json())
 
