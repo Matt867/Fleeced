@@ -84,29 +84,29 @@ export default function Login({ setUser }) {
         <form
           onSubmit={e => onFormSubmit(e)}>
 
-        <section className={Login_styles.info}>
-          <div className={Login_styles.username}>
-              <label>Username:*</label>
-              <br />
+          <section className={Login_styles.info}>
+            <div className={Login_styles.username}>
+                <label>Username:*</label>
+                <br />
 
-              <input
-                required
-                type="text"
-                onChange={e => setUsername(e.target.value)} 
-                className={Login_styles.uname}/>
-            </div>
+                <input
+                  required
+                  type="text"
+                  onChange={e => setUsername(e.target.value)} 
+                  className={Login_styles.uname}/>
+              </div>
 
-            <div className={Login_styles.password}>
-              <label>Password:*</label>
-              <br />
-              <input
-                required
-                type="password"
-                onChange={e => setPassword(e.target.value)} 
-                className={Login_styles.pword}
-                />
-            </div>
-        </section> 
+              <div className={Login_styles.password}>
+                <label>Password:*</label>
+                <br />
+                <input
+                  required
+                  type="password"
+                  onChange={e => setPassword(e.target.value)} 
+                  className={Login_styles.pword}
+                  />
+              </div>
+          </section> 
           
           <div>
             <p>{errorMessage}</p>
