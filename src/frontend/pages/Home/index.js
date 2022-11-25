@@ -7,7 +7,7 @@ import styles_Header from "./components-styles/Header.module.css";
 import styles_homeItem from "./components-styles/Home-Item.module.css"
 import Banner from "./components/Banner";
 import Items from "./components/Items";
-
+import NavBar from "./components/NavBar";
 
 const Home = ({ loggedIn, items, setItem }) => {
   return (
@@ -22,23 +22,7 @@ const Home = ({ loggedIn, items, setItem }) => {
         </div>
       </header>
       <section>
-        <ul>
-          <li>
-            Menswear
-          </li>
-          <li>
-            Womenswear
-          </li>
-          <li>
-            Beauty
-          </li>
-          <li>
-            More
-          </li>
-          <li>
-            SALE
-          </li>
-        </ul>
+        <NavBar />
       </section>
       <section>
         <Banner />
