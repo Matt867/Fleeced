@@ -1,0 +1,23 @@
+.bannername {
+  font-size:xx-large;
+  font-weight: bolder;
+  color: white;
+  text-align: center;
+  padding-top: 4rem ;
+  margin: 0;
+}
+
+h3 {
+  font-size: medium;
+  font-weight: 300;
+  color: white;
+  line-height: 0px;
+  text-align: center;
+  
+}
+
+.banner {
+  width: 100vw;
+  height: 20vh ;
+  background-color: black;
+}
