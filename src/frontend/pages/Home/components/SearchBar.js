@@ -9,7 +9,8 @@ const SeachBar = () => {
         type="text"
         className={styles.search}
         onChange={e => setSeachText(e.target.value)} 
-        placeholder="Search"/>
+        placeholder="Search"
+        />
     </>
   );
 };
