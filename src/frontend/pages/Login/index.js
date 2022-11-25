@@ -1,11 +1,44 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+export default function Login () {
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  return (
-    <>
+  const [errorMessage, setErrorMessage] = useState("")
+
+  function onFormSubmit (e) {
+    e.preventDefault()
+
+    fetch("http://localhost:3000/users/login", {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            username: username,
+            password: password
+        })
+    }).then(response => {
+        if (response.status !== 200) {
+            throw new Error("Invalid username or password")
+        }
+        return response.text()
+    })
+    .then(data => {
+        window.localStorage.setItem('jwt', data)
+        window.location.href = "/"
+    })
+    .catch(error => {
+        setErrorMessage(error.message)
+        console.log(error.message)
+    })
+  }
+
+
+
+  return <>
       <header>
         <h1>Fleeced</h1>
       </header>
@@ -13,8 +46,7 @@ const Login = () => {
         <h2>Login</h2>
         <form
           onSubmit={e => {
-            // fetch user with username and password
-            return null
+            onFormSubmit(e)
           }}>
 
           <div className="username">
@@ -27,7 +59,7 @@ const Login = () => {
           </div>
 
           <div className="password">
-            <label>Pasword:</label>
+            <label>Password:</label>
             <br />
             <input
               required
@@ -35,8 +67,9 @@ const Login = () => {
               onChange={e => setPassword(e.target.value)} />
           </div>
 
-          <br />
-
+          <div>
+            <p>{errorMessage}</p>
+          </div>
           <div className="login-signUp">
             <button type="submit">Login</button>
             <Link to="/signup" ><button>Sign Up</button></Link>
@@ -44,7 +77,4 @@ const Login = () => {
         </form>
       </main>
     </>
-  );
 };
-
-export default Login;
