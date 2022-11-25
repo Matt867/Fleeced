@@ -19,14 +19,35 @@ const Home = ({ loggedIn, items, setItem }) => {
           {loggedIn && <LoginButton />}
           {!loggedIn && <LogoutButton />}
         </div>
-        
       </header>
+      <section>
+        <ul>
+          <li>
+            Menswear
+          </li>
+          <li>
+            Womenswear
+          </li>
+          <li>
+            Beauty
+          </li>
+          <li>
+            More
+          </li>
+          <li>
+            SALE
+          </li>
+        </ul>
+      </section>
       <section>
         <Banner />
       </section>
       <main>
         <Items items={items} styles={styles_homeItem}/>
       </main>
+      <footer className={styles_Header.footer}>
+        <p> Created by Team TWO</p>
+      </footer>
     </>
   );
 };
