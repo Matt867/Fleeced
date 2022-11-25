@@ -1,0 +1,11 @@
+.LoginButton {
+    margin-left: 1vw;
+    background-color: white;
+}
+
+.enterbtn {
+    background-color: white;
+    border: none;
+    height: 2.5vh;
+    font-size: large;
+}
