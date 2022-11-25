@@ -10,7 +10,9 @@ const Items = ({ items, styles }) => {
             <div className={styles.item} key={0}>
                 <label>Items</label>
             </div>
-            {items.map((item, idx) => <ItemCard key={idx} item={item} styles={styles_Basket} />)}
+            <section className={styles.itemsection}>
+                {items.map((item, idx) => <ItemCard key={idx} item={item} styles={styles_Basket}/>)}
+            </section>
         </>
     );
 };
