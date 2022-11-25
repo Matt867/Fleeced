@@ -63,7 +63,7 @@ export default function Login ({setUser}) {
           <NavBar />
         </section>
         
-      <main>
+      <main className={Login_styles.main}>
         <section className={Login_styles.section}>
           <h2>WELCOME BACK!</h2>
         <form
@@ -71,30 +71,36 @@ export default function Login ({setUser}) {
             onFormSubmit(e)
           }}>
 
-          <div className="username">
-            <label>Username:*</label>
-            <br />
-            <input
-              required
-              type="text"
-              onChange={e => setUsername(e.target.value)} />
-          </div>
+        <section className={Login_styles.info}>
+          <div className={Login_styles.username}>
+              <label>Username:*</label>
+              <br />
 
-          <div className={Login_styles.password}>
-            <label>Password:*</label>
-            <br />
-            <input
-              required
-              type="password"
-              onChange={e => setPassword(e.target.value)} />
-          </div>
+              <input
+                required
+                type="text"
+                onChange={e => setUsername(e.target.value)} 
+                className={Login_styles.uname}/>
+            </div>
 
+            <div className={Login_styles.password}>
+              <label>Password:*</label>
+              <br />
+              <input
+                required
+                type="password"
+                onChange={e => setPassword(e.target.value)} 
+                className={Login_styles.pword}
+                />
+            </div>
+        </section> 
+          
           <div>
             <p>{errorMessage}</p>
           </div>
-          <div className="login-signUp">
-            <button type="submit">Login</button>
-            <Link to="/signup" ><button>Sign Up</button></Link>
+          <div className="login-signUp" >
+            <button type="submit" className= {Login_styles.signin}>Login</button>
+            <Link to="/signup" ><button className={Login_styles.signup}>Sign Up</button></Link>
           </div>
         </form>
         </section>
