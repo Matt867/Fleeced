@@ -1,44 +1,54 @@
-import styles from "../../../components-styles/Basket.module.css";
+import styles from "../components-styles/Basket.module.css";
 import { useState } from "react"
-import Order from "../../../components/Order"
+import ItemCard from "./ItemCard";
 
 const Basket = () => {
+    console.log(styles.basket)
+
     const [items, setItems] = useState([
         {
-            img_url: 'https://m.media-amazon.com/images/I/71JCqgGdqUL._AC_AA360_.jpg',
-            title: 'Ducks',
-            quantity: 2,
-            price: 20
+            id: '1',
+            img_url: 'https://media-photos.depop.com/b0/23073875/1230838100_604d557068da426294dcc24ad0e34f9e/P2.jpg',
+            name: 'Cap',
+            shipping: 10,
+            price: 20, 
+            seller: {
+                fullname: 'Carlos Digan',
+                logo_url: 'https://media-photos.depop.com/b0/29711887/1108513973_4c8203529c0b4788a8852eb413136c5e/U2.jpg',
+                handle: '@carlos_digan'
+            }
         },
         {
+            id: '2',
             img_url: 'https://m.media-amazon.com/images/I/71JCqgGdqUL._AC_AA360_.jpg',
-            title: 'Ducks',
-            quantity: 2,
-            price: 20
+            name: 'Ducks',
+            shipping: 5,
+            price: 20,
+            seller: {
+                fullname: 'Carlos Digan',
+                logo_url: 'https://media-photos.depop.com/b0/29711887/1108513973_4c8203529c0b4788a8852eb413136c5e/U2.jpg',
+                handle: '@carlos_digan'
+            }
         },
         {
+            id: '3',
             img_url: 'https://m.media-amazon.com/images/I/71JCqgGdqUL._AC_AA360_.jpg',
-            title: 'Ducks',
-            quantity: 2,
-            price: 20
+            name: 'Ducks',
+            shipping: 0,
+            price: 20,
+            seller: {
+                fullname: 'Carlos Digan',
+                logo_url: 'https://media-photos.depop.com/b0/29711887/1108513973_4c8203529c0b4788a8852eb413136c5e/U2.jpg',
+                handle: '@carlos_digan'
+            }
         },
     ]);
 
     return (
-        <div className={styles.wrapper}>
-            <div className={styles.items}>
-                <div>Product</div>
-                <div>Price</div>
-                <div>Qty</div>
-                <div>Total</div>
-                <Order basketItems={items} />
-            </div>
-            <div id={styles.cost}>
-                <h2 id={styles.subtotal}>Subtotal: £{5}</h2>
-                <button id={styles.pay}>Checkout</button>
-            </div>
-
-        </div>
+      <div id={styles.basket}>
+        
+        {items.map(item => <ItemCard key={item.id} item={item}/>)}
+      </div>  
     );
 };
 

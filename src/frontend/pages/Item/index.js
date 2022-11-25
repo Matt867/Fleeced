@@ -1,8 +1,12 @@
+import Header from "../Home/components/Header";
+import SeachBar from "../Home/components/SearchBar";
+import Banner from "../Home/components/Banner";
+
 
 const Item = ({ item, setItem }) => {
   return (
     <>
-      <header>
+      {/* <header>
         <Header />
         <SeachBar />
         {loggedIn && <SignUpButton />}
@@ -17,7 +21,7 @@ const Item = ({ item, setItem }) => {
         <div>
           <StatsCard />
         </div>
-      </main>
+      </main> */}
     </>
   );
 };

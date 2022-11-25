@@ -1,4 +1,4 @@
-import styles from "../../../components-styles/Basket.module.css";
+import styles from "../../../components-styles/Basket.module.css"
 import ItemCard from "./ItemCard";
 
 const Items = ({ items }) => {

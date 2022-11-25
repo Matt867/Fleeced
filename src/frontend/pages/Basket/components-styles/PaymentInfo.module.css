@@ -1,0 +1,28 @@
+.paymentInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 35%;
+    align-self: flex-end;
+}
+
+.paymentInfo > .wrapper {
+    border-bottom: 0.5px solid black;
+}
+
+.paymentInfo > .wrapper:last-child {
+    border: none;
+}
+
+.checkout {
+    padding: 1em;
+    background-color: black;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+}
