@@ -1,0 +1,13 @@
+h1 {
+  font-size: larger;
+  font-weight: bolder;
+}
+
+h3 {
+  font-size: medium;
+  font-weight: 300;
+}
+
+.banner {
+  width: fit-content;
+}

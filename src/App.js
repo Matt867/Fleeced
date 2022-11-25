@@ -5,7 +5,7 @@ import Login from "./frontend/pages/Login";
 import SignUp from "./frontend/pages/SignUp";
 import Home from "./frontend/pages/Home";
 import BasketPage from "./frontend/pages/Basket";
-import Item from "./frontend/pages/Item";
+// import Item from "./frontend/pages/Item";
 
 const tempData = [
   {
@@ -36,7 +36,7 @@ function App() {
         <Route path="/" element={<Home loggedIn={loggedIn} items={items} setItem={setItem} />} />
         <Route path="/login" element={<Login setLoggedIn={setLoggedIn} />} />
         <Route path="/signup" element={<SignUp setLoggedIn={setLoggedIn} />} />
-        <Route path="/item" element={<Item setLoggedIn={setLoggedIn} />} />
+        {/* <Route path="/item" element={<Item setLoggedIn={setLoggedIn} />} /> */}
         <Route path='/basket' element={<BasketPage setLoggedIn={setLoggedIn} />} />
       </Routes>
     </BrowserRouter>

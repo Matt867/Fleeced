@@ -1,36 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital@1&display=swap');
 
-/* h1 {
-  font-size: 2.8em;
-  padding: 10px 0;
-  font-weight: 800;
-} */
 
 header {
-  margin-left: 2rem;
-  margin-right: 2rem;
+  margin: 0.3rem;
   display: flex;
-  /* grid-template-columns: repeat(10, 10vw); */
   justify-content: space-between;
-  height: 3vh;
-  width: 90vw;
+  height: 5vh;
+  width: 100%
 }
 
 .btncontainer {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  width: 5vw;
-  height: 3vh;
+  /* justify-content: space-around; */
+  
+  height: 4vh;
 }
 
 h1 {
   font-weight: 800;
-  font-size: large;
+  font-size: x-large;
   margin-top: 0.3rem;
   flex: 1;
+  padding: 0;
 }
 
+.footer {
+  text-align: center;
+}
+
+ul {
+  display: flex;
+  /* justify-content: space-between;
+  border: 1px solid black; */
+  padding-inline-start: 0px;
+  width: 100%;
+}
+
+li {
+  list-style-type: none;
+  padding: 16px 0;
+  width: 20%;
+  border: 1px solid black;
+  text-align: center;
+  /* border-left: 1px solid black; */
+}
 
 /* .header {
   padding:60px 0;

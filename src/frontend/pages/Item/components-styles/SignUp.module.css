@@ -2,9 +2,6 @@
     background-color: black;
     color: white;
     border: none;
-    height: 4vh;
+    height: 2.5vh;
     font-size: large;
-    cursor: pointer;
-    margin-left: 5rem;
-    margin-top: 0.1rem;
 }
