@@ -1,13 +1,16 @@
-import styles from "../../../components-styles/Basket.module.css";
+import styles_Basket from "../../../components-styles/Basket.module.css";
 import ItemCard from "./ItemCard";
 
-const Items = ({ items }) => {
+const Items = ({ items, styles }) => {
+    console.log("styles =", styles)
     return (
+        
         <>
-            <div className={styles.wrapper} key={0}>
+        
+            <div className={styles.item} key={0}>
                 <label>Items</label>
             </div>
-            {items.map((item, idx) => <ItemCard key={idx} item={item} styles={styles} />)}
+            {items.map((item, idx) => <ItemCard key={idx} item={item} styles={styles_Basket} />)}
         </>
     );
 };

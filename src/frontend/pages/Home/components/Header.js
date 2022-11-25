@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <>
       <section className={styles.header}>
-        <h1>Fleeced</h1>
+        <h1 className={styles.fleeced}>Fleeced</h1>
       </section>
     </>
   );

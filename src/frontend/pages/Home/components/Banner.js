@@ -4,7 +4,7 @@ const Banner = () => {
   return (
     <>
       <section className={styles.banner}>
-        <h1>BLACK FRIDAY</h1>
+        <h1 className={styles.bannername}>BLACK FRIDAY</h1>
         <h3>50% OFF</h3>
       </section>
     </>
