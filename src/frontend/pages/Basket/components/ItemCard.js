@@ -7,10 +7,10 @@ const ItemCard = ({ item }) => {
     return (
         <div className={styles.itemCard}>
             <div className={styles.wrapper}>
-                <Seller seller={item.seller}/>
-                <Item item={item}/>
+                <Seller seller={item.seller} />
+                <Item item={item} />
             </div>
-            <PaymentInfo item={item}/>
+            <PaymentInfo item={item} />
         </div>
     )
 }

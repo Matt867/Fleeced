@@ -1,10 +1,6 @@
 
 async function signUp(username, password, email) {
 
-    function setErrorMessage() {
-        console.log("BRUH")
-    }
-
     try {
         const response = await fetch("http://localhost:3000/users/signup", {
             method: "POST",
@@ -33,7 +29,32 @@ async function signUp(username, password, email) {
         // setErrorMessage(error.message)
     }
 
-}
+};
 
-module.exports = {SignUp}
+async function logIn(username, password) {
+    fetch("http://localhost:3000/users/login", {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            username: username,
+            password: password
+        })
+    }).then(response => {
+        if (response.status !== 200) {
+            throw new Error("Invalid username or password")
+        }
+        return response.text()
+    })
+        .then(data => {
+            window.localStorage.setItem('jwt', data)
+            window.location.href = "/"
+        })
+        .catch(err => {
+            // setErrorMessage(error.message)
+        })
+};
 
+export default { logIn, signUp };

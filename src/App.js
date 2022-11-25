@@ -48,8 +48,7 @@ function App() {
    * User object will be stored in local storage
    *
    * User: obj
-   * - username: str
-   * - email: str
+   * - token: str
    */
   const [user, setUser] = useState({});
 
