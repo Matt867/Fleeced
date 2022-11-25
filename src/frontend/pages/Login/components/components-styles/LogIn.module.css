@@ -1,0 +1,15 @@
+.section {
+    width: 50%;
+    justify-content: center;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* .password {
+    background-color: black;
+    box-sizing: border-box;
+    border: 0 solid;
+    width: 100%;
+
+} */
