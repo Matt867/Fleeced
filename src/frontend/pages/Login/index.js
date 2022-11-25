@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+// import { logIn } from "../../../front-end/backend-interactions/user.interactions"
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -14,7 +15,17 @@ const Login = () => {
         <form
           onSubmit={e => {
             // fetch user with username and password
-            return null
+            // logIn(username, password);
+            fetch("http://localhost:3000/users/login", {
+              method: "POST",
+              headers: { "content-type": "application/json" },
+              body: JSON.stringify({
+                username: username,
+                password: password,
+              }),
+            }).then(res => res.text())
+              .then(data => localStorage.setItem("jwt", data))
+              .catch(error => console.log(error));
           }}>
 
           <div className="username">

@@ -47,13 +47,12 @@ function App() {
    * User object will be stored in local storage
    *
    * User: obj
-   * - username: str
-   * - email: str
+   * - token: str
    */
   const [user, setUser] = useState({});
 
   // on update of Items re-render homepage
-  useEffect(() => <Navigate to="/" />, [items]);
+  // useEffect(() => <Navigate to="/" />, [items]);
 
   // on initial page load, we'll attempt to grab
   // Item, Basket and User from local storeage

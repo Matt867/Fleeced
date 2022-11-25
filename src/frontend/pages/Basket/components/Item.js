@@ -11,8 +11,8 @@ const Item = ({ item }) => {
                 <button>Remove Item</button>
             </div>
         </div>
-    )
-}
+    );
+};
 
 
 export default Item

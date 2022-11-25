@@ -29,7 +29,7 @@ async function signUp(username, password, email) {
         // setErrorMessage(error.message)
     }
 
-}
+};
 
 async function logIn(username, password) {
     fetch("http://localhost:3000/users/login", {
@@ -55,6 +55,6 @@ async function logIn(username, password) {
         .catch(err => {
             // setErrorMessage(error.message)
         })
-}
+};
 
 export default { logIn, signUp };
