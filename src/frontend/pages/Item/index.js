@@ -3,18 +3,21 @@ import SeachBar from "./components/SearchBar";
 import SignUpButton from "./components/SignUpButton";
 import LoginButton from "./components/LoginButton";
 import LogoutButton from "./components/LogoutButton";
+import styles_Header from "./components-styles/Header.module.css";
 import ImageCard from "./components/ImageCard";
 import StatsCard from "./components/StatsCard";
 
-const Item = ({ item, setItem }) => {
+const Item = ({ loggedIn, item, setItem }) => {
   return (
     <>
       <header>
         <Header />
         <SeachBar />
-        {loggedIn && <SignUpButton />}
-        {loggedIn && <LoginButton />}
-        {!loggedIn && <LogoutButton />}
+        <div className={styles_Header.btncontainer}>
+          {loggedIn && <SignUpButton />}
+          {loggedIn && <LoginButton />}
+          {!loggedIn && <LogoutButton />}
+        </div>
       </header>
       <main>
         <div>

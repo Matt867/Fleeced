@@ -9,7 +9,10 @@
     height: 6em;
 }
 
-
+.quantity {
+    display: flex;
+    gap: 1em;
+}
 
 h3 {
     margin: 0;
