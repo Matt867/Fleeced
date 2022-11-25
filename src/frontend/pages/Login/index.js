@@ -1,11 +1,6 @@
 
-import Header from "../Home/components/Header";
-import NavBar from "../Home/components/NavBar";
+import React, { useState, useEffect } from "react";
 
-import SignUpButton from "../Home/components/SignUpButton"
-import HomeButton from "../Home/components/HomeButton";
-
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 // import { logIn } from "../../../front-end/backend-interactions/user.interactions"
 
@@ -18,6 +13,36 @@ export default function Login ({setUser}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("")
+
+  useEffect(() => {
+    async function call() {
+      const jwt = window.localStorage.getItem('jwt')
+      if (jwt) {
+        const response = await fetch('http://localhost:3000/users/validateToken', {
+            method: "POST",
+            headers: {
+                'authorization': `Basic ${jwt}`,
+                'Content-Type': 'application/json'
+            },
+
+        })
+        const data = await response.json()
+        console.log(data)
+        if (data.authenticated) {
+            window.location.href = "/"
+        } else {
+            console.log("Must sign in")
+        }
+
+      } else {
+          console.log("Need to sign in")
+      }
+    }
+    call()
+
+    }, [])
+
+
 
   function onFormSubmit (e) {
     e.preventDefault()
