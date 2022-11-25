@@ -5,6 +5,7 @@ import SeachBar from "./components/SearchBar";
 import Header from "./components/Header";
 import Banner from "./components/Banner";
 import Items from "./components/Items";
+import NavBar from "./components/NavBar";
 
 import SignUpButton from "./components/SignUpButton";
 import LogoutButton from "./components/LogoutButton";
@@ -29,23 +30,7 @@ const Home = ({ setItem, setSearchText, searchText, setUser, setItems, items }) 
         </div>
       </header>
       <section>
-        <ul>
-          <li>
-            Menswear
-          </li>
-          <li>
-            Womenswear
-          </li>
-          <li>
-            Beauty
-          </li>
-          <li>
-            More
-          </li>
-          <li>
-            SALE
-          </li>
-        </ul>
+        <NavBar />
       </section>
       <section>
         <Banner />

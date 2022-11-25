@@ -10,4 +10,9 @@
     font-size: large;
     cursor: pointer;
     margin-top: 0.1rem;
+    flex: 1;
+}
+
+.enterbtn:hover {
+    opacity: 0.3;
 }

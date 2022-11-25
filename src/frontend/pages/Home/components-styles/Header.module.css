@@ -1,20 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital@1&display=swap');
 
-
 header {
-  margin: 0.3rem;
+  margin: 0px 8px;
   display: flex;
   justify-content: space-between;
+  text-align: center;
+  gap: 5rem;
   height: 5vh;
   width: 100%
 }
 
 .btncontainer {
-  display: flex;
-  flex-direction: row;
-  /* justify-content: space-around; */
-  
+  flex: 1;
   height: 4vh;
+  text-align: end;
+  margin: 0px 8px;
 }
 
 h1 {
@@ -31,8 +31,6 @@ h1 {
 
 ul {
   display: flex;
-  /* justify-content: space-between;
-  border: 1px solid black; */
   padding-inline-start: 0px;
   width: 100%;
 }
@@ -41,17 +39,18 @@ li {
   list-style-type: none;
   padding: 16px 0;
   width: 20%;
-  border: 1px solid black;
+  border: none;
   text-align: center;
+  font-weight: bolder;
+  cursor: pointer;
   /* border-left: 1px solid black; */
 }
 
-/* .header {
-  padding:60px 0;
-  /* text-align: center; */
-  /* background: #33cccc; */
-  /* color: rgb(0, 0, 0);
-  font-weight: 300; */
-/* } */ 
+li:hover {
+  background-color: red;
+  color: white;
+  font-weight: bolder;
+}
+
 
 
