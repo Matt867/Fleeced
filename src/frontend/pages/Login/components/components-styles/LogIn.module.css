@@ -4,6 +4,8 @@
     border: 1px solid black;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
+    padding: 2%;
 }
 
 .main {
@@ -59,7 +61,7 @@ label {
     cursor: pointer;
     margin-top: 0.1rem;
     width: 5rem;
-    
+
 }
 
 .signup {
@@ -71,6 +73,4 @@ label {
     cursor: pointer;
     margin-top: 0.1rem;
     width: 5rem;
-
-   
 }

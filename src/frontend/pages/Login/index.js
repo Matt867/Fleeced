@@ -86,8 +86,9 @@ export default function Login ({setUser}) {
         <section>
           <NavBar />
         </section>
-        
-      <main className={Login_styles.main}>
+
+        <main className={Login_styles.main}>
+
         <section className={Login_styles.section}>
           <h2>WELCOME BACK!</h2>
         <form
@@ -103,7 +104,7 @@ export default function Login ({setUser}) {
               <input
                 required
                 type="text"
-                onChange={e => setUsername(e.target.value)} 
+                onChange={e => setUsername(e.target.value)}
                 className={Login_styles.uname}/>
             </div>
 
@@ -113,12 +114,12 @@ export default function Login ({setUser}) {
               <input
                 required
                 type="password"
-                onChange={e => setPassword(e.target.value)} 
+                onChange={e => setPassword(e.target.value)}
                 className={Login_styles.pword}
                 />
             </div>
-        </section> 
-          
+        </section>
+
           <div>
             <p>{errorMessage}</p>
           </div>
@@ -128,7 +129,7 @@ export default function Login ({setUser}) {
           </div>
         </form>
         </section>
-        
+
       </main>
     </>
 };
