@@ -202,7 +202,11 @@ requires body with itemId:
 body: {
     itemId: id
 }
-returns 404 if user not found, 400 if ItemId not included in body
+returns 404 if user not found, 400 if ItemId not included in body, if user found returns
+Body: {
+    username: username,
+    email: email
+}
 */
 itemRouter.post("/user", async (req, res) => {
     const id = req.body.itemId
