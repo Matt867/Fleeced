@@ -1,0 +1,30 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+.items {
+    display: grid;
+    grid-template-columns: repeat(4, 250px);
+    row-gap: 5em;
+    place-items: center;
+}
+
+#cost {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-self:flex-start;
+}
+
+
+#pay {
+    width: 7em;
+    height: 2em;
+    border-radius: 1em;;
+    font-size: large;
+    font-weight: bolder;
+}

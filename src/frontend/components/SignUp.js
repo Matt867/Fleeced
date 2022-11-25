@@ -44,6 +44,7 @@ const SignUp = () => {
                     <div className="login-signup">
                         <button type="sumbit">Sign Up</button>
                         <Link to="/login"><button>Log In</button></Link>
+
                     </div>
                 </form>
             </main>
