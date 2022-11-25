@@ -1,13 +1,23 @@
-h1 {
-  font-size: larger;
+.bannername {
+  font-size:xx-large;
   font-weight: bolder;
+  color: white;
+  text-align: center;
+  padding-top: 4rem ;
+  margin: 0;
 }
 
 h3 {
   font-size: medium;
   font-weight: 300;
+  color: white;
+  line-height: 0px;
+  text-align: center;
+  
 }
 
 .banner {
-  width: fit-content;
+  width: 100vw;
+  height: 20vh ;
+  background-color: black;
 }
