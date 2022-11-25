@@ -18,7 +18,6 @@ export default function Login () {
                 'authorization': `Basic ${jwt}`,
                 'Content-Type': 'application/json'
             },
-
         })
         const data = await response.json()
         console.log(data)

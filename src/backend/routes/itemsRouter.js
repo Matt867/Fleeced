@@ -31,13 +31,15 @@ Call to return all items not associated with an order object
 */
 itemRouter.get('/', async (req, res) => {
     try {
-        const items = (await Item.findAll()).filter((item) => {
+        const items = await Item.findAll()
+        filteredItems = items.filter((item) => {
             if (item.getOrder()) {
                 return false
             } else {
                 return true
             }
         })
+        console.log(items)
         res.send(items)
     } catch (error) {
         res.sendStatus(400)
