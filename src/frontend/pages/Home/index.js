@@ -11,8 +11,21 @@ import SignUpButton from "./components/SignUpButton";
 import LogoutButton from "./components/LogoutButton";
 import LoginButton from "./components/LoginButton";
 import HomeButton from "./components/HomeButton";
+import { useEffect, useState } from "react";
 
-const Home = ({ setItem, setSearchText, searchText, setUser, setItems, items }) => {
+const Home = ({ setItem, setSearchText, searchText, setUser }) => {
+  const [items, setItems] = useState([])
+  const [errorMessage, setErrorMessage] = useState('')
+
+  useEffect(() => {
+    fetch('http://localhost:3000/item/').then(
+      (response) => response.json()
+    ).then((data) => {
+      console.log(data)
+      setItems(data)
+    }).catch((err) => setErrorMessage(err.message))
+  }, [])
+
   const user = localStorage.getItem("user");
   return (
     <>
@@ -40,6 +53,7 @@ const Home = ({ setItem, setSearchText, searchText, setUser, setItems, items }) 
           setUser={setUser}
           setItem={setItem}
           items={items}
+          count={items.length}
           styles={styles_homeItem} />
       </main>
       <footer className={styles_Header.footer}>

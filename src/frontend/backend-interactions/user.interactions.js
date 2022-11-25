@@ -35,5 +35,4 @@ async function signUp(username, password, email) {
 
 }
 
-module.exports = {SignUp}
-
+module.exports = { SignUp }
