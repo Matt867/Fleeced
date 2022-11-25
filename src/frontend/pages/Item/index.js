@@ -30,7 +30,7 @@ const Item = ({ user, item, setItem }) => {
           <ImageCard src={item.src} alt={item.alt} />
         </div>
         <div>
-          <User item={item} />
+          {/* <User item={item} /> */}
         </div>
         <div>
           <StatsCard item={item} />

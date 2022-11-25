@@ -56,27 +56,20 @@ function App() {
 
   // on initial page load, we'll attempt to grab
   // Item, Basket and User from local storeage
-  useEffect(() => {
-    const localStorageItem = localStorage.getItem("item");
-    const localStorageUser = localStorage.getItem("user");
-    const localStorageBasket = localStorage.getItem("basket");
-
-    setItem(localStorageItem || item);
-    setUser(localStorageUser || user);
-    setBasket(localStorageBasket || basket);
-  }, []);
 
 
   // if item is updated and none empty updated item in local storage
   useEffect(() => {
     if (item) localStorage
-      .setItem("user", JSON.stringify(item));
+      .setItem("item", JSON.stringify(item));
   }, [item]);
 
   // if user is updated and none empty updated user in local storage
   useEffect(() => {
-    if (user) localStorage
-      .setItem("user", JSON.stringify(user));
+    if (user !== "") {
+      window.localStorage.setItem("jwt", user)
+      window.location.href = "/"
+    }
   }, [user]);
 
   // if basket is updated and none empty updated basket in local storage

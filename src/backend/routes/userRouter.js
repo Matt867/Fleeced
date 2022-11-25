@@ -74,6 +74,7 @@ will response with:
 */
 userRouter.post('/validateToken', validateToken, (req, res) => {
     const authenticated = req.auth
+    console.log(authenticated)
     res.status(200).send(authenticated)
 })
 
