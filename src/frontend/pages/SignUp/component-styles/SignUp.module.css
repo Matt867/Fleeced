@@ -1,0 +1,55 @@
+.main {
+    justify-content: center;
+    text-align: center;
+
+}
+
+.section {
+    width: 50%;
+    justify-content: center;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.info {
+    text-align: start;
+}
+
+label {
+    margin-left: 00.3rem;
+    font-size: small; 
+}
+
+input {
+    box-sizing: border-box;
+    border: 1px solid;
+    width: 50%;
+    height: 2.5rem;
+    margin-left: 0.3rem;
+}
+
+.signin {
+    background-color: black;
+    color: white;
+    border: none;
+    height: 4vh;
+    font-size: large;
+    cursor: pointer;
+    margin-top: 0.1rem;
+    width: 5rem;
+    
+}
+
+.signup {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    height: 4vh;
+    font-size: large;
+    cursor: pointer;
+    margin-top: 0.1rem;
+    width: 5rem;
+
+   
+}
