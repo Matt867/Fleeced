@@ -15,7 +15,6 @@ function validPasswordCheck (req, res, next) {
 async function validateCredentials (req, res, next) {
     let username = req.body.username
     let password = req.body.password
-
     try {
         user = await User.findOne({
             where: {
@@ -56,11 +55,18 @@ async function getToken(req, res, next) {
         req.token = data
         next()
     })
-    .catch(err => {throw new Error})
+    .catch(err => {
+        console.log(err.message)
+        throw new Error
+    })
 }
 
 async function validateToken (req, res, next) {
-    const token = req.body.token
+
+    const authHeader = req.headers['authorization']
+
+    const token = authHeader && authHeader.split(' ')[1]
+    if (token == null) return res.sendStatus(401)
 
     const response = await fetch('http://localhost:3001/api/authenticateToken', {
         method: "GET",
@@ -70,7 +76,7 @@ async function validateToken (req, res, next) {
         }
     })
 
-    const data = await response.text()
+    const data = await response.json()
     req.auth = data
     next()
 }

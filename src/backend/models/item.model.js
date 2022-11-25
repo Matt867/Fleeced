@@ -16,7 +16,8 @@ Item.init({
         allowNull: false
     },
     image: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: true
     },
     tag1: {
         type: DataTypes.STRING,
