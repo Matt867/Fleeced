@@ -1,8 +1,19 @@
+
+import Header from "../Home/components/Header";
+import NavBar from "../Home/components/NavBar";
+
+import SignUpButton from "../Home/components/SignUpButton"
+import HomeButton from "../Home/components/HomeButton";
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 // import { logIn } from "../../../front-end/backend-interactions/user.interactions"
 
-export default function Login () {
+import Login_styles from "./components/components-styles/LogIn.module.css"
+import styles_Header from "../Home/components-styles/Header.module.css"
+
+
+export default function Login ({setUser}) {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -30,6 +41,7 @@ export default function Login () {
     .then(data => {
         window.localStorage.setItem('jwt', data)
         window.location.href = "/"
+        setUser(data)
     })
     .catch(error => {
         setErrorMessage(error.message)
@@ -41,17 +53,26 @@ export default function Login () {
 
   return <>
       <header>
-        <h1>Fleeced</h1>
-      </header>
+        <Header />
+          <div className={styles_Header.btncontainer}>
+            <SignUpButton />
+            <HomeButton />
+          </div>
+        </header>
+        <section>
+          <NavBar />
+        </section>
+        
       <main>
-        <h2>Login</h2>
+        <section className={Login_styles.section}>
+          <h2>WELCOME BACK!</h2>
         <form
           onSubmit={e => {
             onFormSubmit(e)
           }}>
 
           <div className="username">
-            <label>Username:</label>
+            <label>Username:*</label>
             <br />
             <input
               required
@@ -59,8 +80,8 @@ export default function Login () {
               onChange={e => setUsername(e.target.value)} />
           </div>
 
-          <div className="password">
-            <label>Password:</label>
+          <div className={Login_styles.password}>
+            <label>Password:*</label>
             <br />
             <input
               required
@@ -76,6 +97,8 @@ export default function Login () {
             <Link to="/signup" ><button>Sign Up</button></Link>
           </div>
         </form>
+        </section>
+        
       </main>
     </>
 };
