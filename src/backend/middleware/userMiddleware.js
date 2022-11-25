@@ -55,7 +55,10 @@ async function getToken(req, res, next) {
         req.token = data
         next()
     })
-    .catch(err => {throw new Error})
+    .catch(err => {
+        console.log(err.message)
+        throw new Error
+    })
 }
 
 async function validateToken (req, res, next) {

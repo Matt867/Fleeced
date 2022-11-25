@@ -1,3 +1,4 @@
+const path = require('path')
 const express = require('express')
 const crypto = require('crypto')
 const bcrypt = require('bcrypt')
@@ -85,7 +86,9 @@ itemRouter.post('/add', validateToken, async (req, res) => {
 
         item.setUser(user)
 
-        res.sendStatus(201)
+        res.status(201).json({
+            "id": item.id
+        })
     } else {
         res.status(400).send("Missing crucial information about the item")
     }
@@ -217,6 +220,73 @@ itemRouter.post("/user", async (req, res) => {
         }
     } catch (error) {
         res.sendStatus(404)
+    }
+})
+
+/**
+ * This is a post route which will allow you to upload an image to a specific listing by selecting the listing from the :id param,
+ * The file upload button component MUST HAVE: name='imageUpload'
+ *
+ * header: {
+ *      authorization: TOKEN
+ * }
+ *
+ * body: {
+ *  IN HERE IS A FILE UPLOAD, the file upload must come from a input with name='imageUpload' and type='file'
+ * }
+ *
+ * The auth token must match the user who created the listing otherwise a 401 (unauthorized) is sent
+ */
+itemRouter.post('/image/upload/:id', validateToken, async (req, res) => {
+
+    const item = await Item.findByPk(req.params.id)
+
+    if (!item) res.status(404).send("No item with that ID")
+
+    const seller = await item.getUser()
+
+    if (!seller) res.status(404).send("No seller linked to item")
+
+    if (seller.username !== req.auth.username) res.sendStatus(401)
+
+    if (!req.files) {
+        return res.status(400).send("No files were uploaded")
+    }
+
+    const file = req.files.imageUpload
+
+    const imagePath = __dirname + "/../content/images/" + file.name
+    console.log(imagePath)
+
+    const response = file.mv(imagePath, async (err) => {
+        if (err) {
+            res.sendStatus(500)
+        }
+
+        await Item.update({
+            image: file.name
+        }, {
+            where: { id: item.id }
+        })
+        return { added: true, path: imagePath }
+    })
+
+    res.send(response)
+})
+
+
+/**
+ * No auth token,
+ * simply run GET /item/image/get/:id to receive the image back
+ */
+itemRouter.get('/image/get/:id', async (req, res) => {
+    const item = await Item.findByPk(req.params.id)
+
+    if (item) {
+        const image = item.image
+        res.sendFile(path.join(__dirname, `../content/images/${image}`))
+    } else {
+        res.status(404).send("Could not find file")
     }
 })
 
