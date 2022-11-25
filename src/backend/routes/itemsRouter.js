@@ -192,5 +192,32 @@ itemRouter.get('/search/:query', async (req, res) => {
         res.send(400)
     }
 })
+/*
+Get User asspciated with item (seller)
+requires body with itemId:
+
+body: {
+    itemId: id
+}
+returns 404 if user not found, 400 if ItemId not included in body
+*/
+itemRouter.post("/user", async (req, res) => {
+    const id = req.body.itemId
+    try {
+        if (id) {
+            const item = await Item.findByPk(id)
+            const user = await item.getUser()
+            if (user) {
+                res.send({"username": user.username, "email": user.email})
+            } else {
+                throw new Error ('No User associated with item')
+            }
+        } else {
+            res.sendStatus(400)
+        }
+    } catch (error) {
+        res.sendStatus(404)
+    }
+})
 
 module.exports = itemRouter
