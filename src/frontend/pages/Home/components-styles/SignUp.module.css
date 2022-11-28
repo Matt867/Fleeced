@@ -2,7 +2,13 @@
     background-color: black;
     color: white;
     border: none;
-    height: 2.5vh;
+    height: 4vh;
     font-size: large;
     cursor: pointer;
+    margin-top: 0.1rem;
+    flex: 1;
+}
+
+.signup:hover {
+    opacity: 0.3;
 }

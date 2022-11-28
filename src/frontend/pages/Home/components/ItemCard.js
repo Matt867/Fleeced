@@ -1,10 +1,14 @@
-const ItemCard = ({ key, item, styles }) => {
+import styles_homeItem from "../components-styles/Home-Item.module.css";
+
+const ItemCard = ({ key, item }) => {
     return (
-        <div key={key} className={styles.wrapper}>
-            {/* <img src={item.image}></img> */}
-            <p>Title: {item.title}</p>
-            <br />
-            <p>Price: {item.price}</p>
+        <div key={key} className={styles_homeItem.wrapper}>
+            <div className={styles_homeItem.overlay}>
+                <img src={item.image}></img>
+                <p>Title: {item.title}</p>
+                <br />
+                <p>Price: {item.price}</p>
+            </div>
         </div>
     );
 };
